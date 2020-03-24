@@ -68,7 +68,7 @@ unset($_SESSION['err']);
 	# code...
 }
   ?>
-<form method="post" action="edit.php">
+<form method="post" action="edit.php?profile_id=".$_GET['profile_id']">
 <p>First Name:
 <input type="text" name="first_name" size="60"
 value="<?= $row['first_name']?>"/></p>
