@@ -5,6 +5,15 @@ if (! isset($_GET['profile_id'])) {
   $_SESSION['err'] = "Missing user_id";
   header('Location: index.php');
   return;
+}else {
+$stmt = $pdo->prepare("SELECT * FROM profile where profile_id = :xyz");
+$stmt->execute(array(":xyz" => $_GET['profile_id']));
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+if ( $row === false ) {
+    $_SESSION['err'] = 'Bad value for id';
+    header( 'Location: index.php' ) ;
+    return;
+}
 }
 if (isset($_POST['cancel'])) {
 	header("Location:index.php");
