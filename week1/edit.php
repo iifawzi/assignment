@@ -10,8 +10,13 @@ if (isset($_POST['cancel'])) {
 	header("Location:index.php");
 }
 if (isset($_POST['save'])) {
-	if ( empty($_POST['first_name'])||empty($_POST['last_name'])||empty($_POST['email'])|empty($_POST['headline'])||empty($_POST['summary'])) {
-		$_SESSION['err']="All fields are required";
+	if (
+	       empty($_POST['first_name']) 
+	    || empty($_POST['last_name']) 
+	    || empty($_POST['email']) 
+	    || empty($_POST['headline']) 
+	    || empty($_POST['summary'])) {
+		$_SESSION['err']= "All fields are required";
     	header("Location:edit.php?profile_id=".$_POST['profile_id']);
 		return;
 	# code...
